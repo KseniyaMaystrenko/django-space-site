@@ -32,6 +32,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', # <-- ДОБАВЛЕНА ЭТА СТРОКА
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -53,7 +54,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.media', # ДОБАВЛЕНО ДЛЯ 9 ЛАБЫ
+                'django.template.context_processors.media', # ДЛЯ МЕДИА
             ],
         },
     },
@@ -63,8 +64,6 @@ WSGI_APPLICATION = 'web_project.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -74,58 +73,23 @@ DATABASES = {
 
 
 # Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
-
-LANGUAGE_CODE = 'ru-ru' # Русский язык
-
+LANGUAGE_CODE = 'ru-ru'
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
-
-STATIC_URL = 'static/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-# ==========================================
-# НАСТРОЙКИ ДЛЯ ЛАБОРАТОРНОЙ 6 (Вход/Выход)
-# ==========================================
-
-# Куда перенаправлять пользователя после успешного входа (на главную)
-LOGIN_REDIRECT_URL = 'home'
-
-# Куда перенаправлять пользователя после выхода (на главную)
-LOGOUT_REDIRECT_URL = 'home'
-
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Папки, где Django будет искать статику (картинки, css)
 STATICFILES_DIRS = [
@@ -133,8 +97,17 @@ STATICFILES_DIRS = [
 ]
 
 # ==========================================
-# НАСТРОЙКИ ДЛЯ ЛАБОРАТОРНОЙ 9 (Медиа-файлы)
+# НАСТРОЙКИ ДЛЯ LAB 9 (Медиа-файлы)
 # ==========================================
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Папка, куда Render будет собирать статику
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Настройки по умолчанию
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Вход/Выход
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
