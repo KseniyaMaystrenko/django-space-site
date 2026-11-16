@@ -1,0 +1,17 @@
+{% extends "main/layout.html" %}
+
+{% block content %}
+    <h2>{{ title }}</h2>
+    <br />
+    {% for post in posts %}
+        <hr/>
+        <div class="post-preview">
+            <h2><a href="{% url 'blogpost' parametr=post.id %}">{{ post.title }}</a></h2>
+            <h4>{{ post.posted|date:"d.m.Y H:i" }}</h4>
+            <p>{{ post.short_description }}</p>
+            <p><a href="{% url 'blogpost' parametr=post.id %}" class="btn btn-default">Читать далее</a></p>
+        </div>
+    {% empty %}
+        <p>Статей пока нет.</p>
+    {% endfor %}
+{% endblock %}

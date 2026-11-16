@@ -1,0 +1,46 @@
+{% extends "main/layout.html" %}
+
+{% block content %}
+    <h2>Оставьте свой отзыв о нашем сайте</h2>
+    <br>
+    
+    {% if form %}
+        <form method="post">
+            {% csrf_token %}
+            <p><label>{{ form.name.label }}</label><br>{{ form.name }}</p>
+            <p><label>{{ form.rate.label }}</label><br>{{ form.rate }}</p>
+            <p><label>{{ form.liked.label }}</label><br>{{ form.liked }}</p>
+            <p><label>{{ form.wishes.label }}</label><br>{{ form.wishes }}</p>
+            <p>{{ form.subscribe }} <label>{{ form.subscribe.label }}</label></p>
+            <p><label>{{ form.email.label }}</label><br>{{ form.email }}</p>
+            
+            <input type="submit" value="Отправить отзыв" id="submit_btn">
+        </form>
+    {% else %}
+        <h2>Спасибо за ваш отзыв!</h2>
+        <h3>Вы сообщили следующее:</h3>
+        <ul>
+            <li><b>Имя:</b> {{ data.name }}</li>
+            <li><b>Оценка сайта:</b> {{ data.rate }} баллов</li>
+            <li><b>Понравилось:</b> {{ data.liked }}</li>
+            <li><b>Пожелания:</b> {{ data.wishes }}</li>
+            <li><b>Подписка на новости:</b> {{ data.subscribe }}</li>
+            <li><b>E-mail:</b> {{ data.email }}</li>
+        </ul>
+    {% endif %}
+
+    <!-- JavaScript из самостоятельной работы -->
+    <script>
+    $(document).ready(function() {
+        var originalButtonColor = $('#submit_btn').css('color');
+        $('#submit_btn').mouseover(function() { $(this).css('color', 'red'); });
+        $('#submit_btn').mouseout(function() { $(this).css('color', originalButtonColor); });
+
+        $('input[type="text"], input[type="email"], textarea').each(function() {
+            var originalBgColor = $(this).css('background-color');
+            $(this).focus(function() { $(this).css('background-color', '#ffffcc'); });
+            $(this).blur(function() { $(this).css('background-color', originalBgColor); });
+        });
+    });
+    </script>
+{% endblock %}

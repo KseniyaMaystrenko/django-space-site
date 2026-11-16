@@ -1,0 +1,22 @@
+{% extends "main/layout.html" %}
+{% load static %}
+
+{% block content %}
+    <h2>Видео-материалы</h2>
+    
+    <div style="margin-bottom: 30px;">
+        <h3>Видео 1</h3>
+        <video width="600" controls>
+            <source src="/media/video1.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+    </div>
+
+    <div>
+        <h3>Видео 2</h3>
+        <video width="600" controls>
+            <source src="/media/video2.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+    </div>
+{% endblock %}

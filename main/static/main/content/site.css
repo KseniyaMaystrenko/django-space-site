@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding-top: 70px;
+    background: #f7f7f7;
+}
+header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #2c3e50;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+header a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+}
+footer {
+    text-align: center;
+    padding: 15px;
+    color: #888;
+}
+
+.home-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+}
+/* Оформление для блога */
+.post-preview {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.post-preview h2 a {
+    color: #1b3a63;
+    text-decoration: none;
+}
+.post-preview h2 a:hover {
+    color: #ffcc00;
+}
+
+/* Оформление комментариев */
+h5 {
+    color: #1b3a63; /* Цвет автора */
+    font-weight: bold;
+}
+h7 {
+    color: #888;
+    font-size: 12px;
+}

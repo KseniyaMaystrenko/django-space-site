@@ -1,0 +1,28 @@
+{% extends "main/layout.html" %}
+{% load static %}
+
+{% block content %}
+    <h2>Полезные ресурсы</h2>
+    <p>Вот несколько полезных сайтов по теме нашего проекта:</p>
+    
+    <div style="margin-bottom: 20px;">
+        <a href="https://www.djangoproject.com/" target="_blank">
+            <img src="{% static 'main/content/tumanost.png' %}" alt="Django" height="50" style="vertical-align: middle; margin-right: 10px;">
+            <b>Django (официальный сайт)</b> — фреймворк для создания веб-приложений
+        </a>
+    </div>
+    
+    <div style="margin-bottom: 20px;">
+        <a href="https://developer.mozilla.org/ru/" target="_blank">
+            <img src="{% static 'main/content/tumanost.png' %}" alt="MDN" height="50" style="vertical-align: middle; margin-right: 10px;">
+            <b>MDN Web Docs</b> — лучший справочник по HTML, CSS и JavaScript
+        </a>
+    </div>
+    
+    <div style="margin-bottom: 20px;">
+        <a href="https://webref.ru/" target="_blank">
+            <img src="{% static 'main/content/tumanost.png' %}" alt="WebRef" height="50" style="vertical-align: middle; margin-right: 10px;">
+            <b>WebRef</b> — русскоязычный справочник по веб-разработке
+        </a>
+    </div>
+{% endblock %}
